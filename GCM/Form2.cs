@@ -12,6 +12,7 @@ namespace GCM
         public string precisionFile = Directory.GetCurrentDirectory()+@"\presets\precision.txt";
         public string densityBoolFile = Directory.GetCurrentDirectory()+@"\presets\densityBool.txt";
         public string precisionBoolFile = Directory.GetCurrentDirectory()+@"\presets\precisionBool.txt";
+        public string usePrecisionFile = Directory.GetCurrentDirectory() + @"\presets\usePrecision.txt";
 
         public Form2()
         {
@@ -57,8 +58,6 @@ namespace GCM
             // Every time the text is changed TryParse it to an int, if it fails to parse clear the input box
             bool isNumeric = int.TryParse(precisionIn.Text, out Form1.precision);
             if (!isNumeric) precisionIn.Text = "";
-            if (Form1.precision == 0) Form1.noRounding = true;
-            else Form1.noRounding = false;
         }
 
         private void savePrecision_Click(object sender, EventArgs e)
@@ -102,20 +101,31 @@ namespace GCM
                 var recentFile = File.Create(precisionFile);
                 recentFile.Close();
             }
-            if (!File.Exists(densityBoolFile)) 
-            {
-                File.WriteAllText(densityBoolFile, "false");
-            }
-            if (!File.Exists(precisionBoolFile))
-            {
-                File.WriteAllText(precisionBoolFile, "false");
-            }
+            if (!File.Exists(densityBoolFile)) File.WriteAllText(densityBoolFile, "false");
+            if (!File.Exists(precisionBoolFile)) File.WriteAllText(precisionBoolFile, "false");
+            if (!File.Exists(usePrecisionFile)) File.WriteAllText(usePrecisionFile, "false");
 
             // Load the bools from previous session
             bool.TryParse(File.ReadAllText(densityBoolFile), out bool densitySave);
             bool.TryParse(File.ReadAllText(precisionBoolFile), out bool precisionSave);
+            bool.TryParse(File.ReadAllText(usePrecisionFile), out bool usePrecision);
             useDensitySave.Checked = densitySave;
             usePrecisionSave.Checked = precisionSave;
+            useRounding.Checked = usePrecision;
+        }
+
+        private void useRounding_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!useRounding.Checked)
+            {
+                Form1.Rounding = false;
+                File.WriteAllText(usePrecisionFile, "false");
+            }
+            else
+            {
+                Form1.Rounding = true;
+                File.WriteAllText(usePrecisionFile, "true");
+            }
         }
     }
 }

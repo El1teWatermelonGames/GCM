@@ -7,7 +7,7 @@ namespace GCM
     {
         static public decimal density;
         static public int precision;
-        static public bool noRounding;
+        static public bool Rounding;
 
         public decimal cmResult;
         public decimal gResult;
@@ -28,6 +28,7 @@ namespace GCM
 
         private void gramsIn_TextChanged(object sender, EventArgs e)
         {
+            gramsIn.KeyPress += new KeyPressEventHandler(CheckEnterKeyPressGIn);
             bool isNumeric = decimal.TryParse(gramsIn.Text, out gCalc);
             if (!isNumeric)
             {
@@ -40,9 +41,20 @@ namespace GCM
             }
         }
 
+        private void CheckEnterKeyPressGIn(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+
+            {
+                if (!Rounding) cmResult = gCalc / density;
+                else cmResult = decimal.Round(gCalc / density, precision, MidpointRounding.AwayFromZero);
+                cmOut.Text = cmResult.ToString();
+            }
+        }
+
         private void convertCm_Click(object sender, EventArgs e)
         {
-            if(noRounding == true) cmResult = gCalc / density;
+            if(!Rounding) cmResult = gCalc / density;
             else cmResult = decimal.Round(gCalc / density, precision, MidpointRounding.AwayFromZero);
             cmOut.Text = cmResult.ToString();
         }
@@ -54,6 +66,7 @@ namespace GCM
 
         private void cmIn_TextChanged(object sender, EventArgs e)
         {
+            cmIn.KeyPress += new KeyPressEventHandler(CheckEnterKeyPressCmIn);
             bool isNumeric = decimal.TryParse(cmIn.Text, out cmCalc);
             if (!isNumeric)
             {
@@ -66,10 +79,20 @@ namespace GCM
             }
         }
 
+        private void CheckEnterKeyPressCmIn(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                if (!Rounding) cmResult = gCalc / density;
+                else cmResult = decimal.Round(gCalc / density, precision, MidpointRounding.AwayFromZero);
+                cmOut.Text = cmResult.ToString();
+            }
+        }
+
         private void convertG_Click(object sender, EventArgs e)
         {
-            if (noRounding == true) gResult = cmCalc * density;
-            else gResult = decimal.Round(gResult * density, precision, MidpointRounding.AwayFromZero);
+            if (!Rounding) gResult = cmCalc * density;
+            else gResult = decimal.Round(cmCalc * density, precision, MidpointRounding.AwayFromZero);
             gOut.Text = gResult.ToString();
         }
 

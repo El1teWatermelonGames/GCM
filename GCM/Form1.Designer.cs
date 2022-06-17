@@ -46,7 +46,7 @@ namespace GCM
             // 
             // settings
             // 
-            this.settings.Location = new System.Drawing.Point(297, 226);
+            this.settings.Location = new System.Drawing.Point(12, 255);
             this.settings.Name = "settings";
             this.settings.Size = new System.Drawing.Size(75, 23);
             this.settings.TabIndex = 0;
@@ -56,8 +56,6 @@ namespace GCM
             // 
             // gCmGroup
             // 
-            this.gCmGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.gCmGroup.Controls.Add(this.enterGramsLabel);
             this.gCmGroup.Controls.Add(this.convertCm);
             this.gCmGroup.Controls.Add(this.cmOut);
@@ -109,8 +107,6 @@ namespace GCM
             // 
             // cmGGroup
             // 
-            this.cmGGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.cmGGroup.Controls.Add(this.enterCmLabel);
             this.cmGGroup.Controls.Add(this.convertG);
             this.cmGGroup.Controls.Add(this.gOut);
@@ -164,13 +160,13 @@ namespace GCM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 261);
+            this.ClientSize = new System.Drawing.Size(304, 286);
             this.Controls.Add(this.gCmGroup);
             this.Controls.Add(this.cmGGroup);
             this.Controls.Add(this.settings);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(400, 300);
-            this.MinimumSize = new System.Drawing.Size(400, 300);
+            this.MaximumSize = new System.Drawing.Size(320, 325);
+            this.MinimumSize = new System.Drawing.Size(320, 325);
             this.Name = "Form1";
             this.Text = "GCM";
             this.gCmGroup.ResumeLayout(false);

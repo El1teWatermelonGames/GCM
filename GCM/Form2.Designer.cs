@@ -37,6 +37,7 @@ namespace GCM
             this.precisionIn = new System.Windows.Forms.TextBox();
             this.savePrecision = new System.Windows.Forms.Button();
             this.usePrecisionSave = new System.Windows.Forms.CheckBox();
+            this.useRounding = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // densityLabel
@@ -115,11 +116,23 @@ namespace GCM
             this.usePrecisionSave.UseVisualStyleBackColor = true;
             this.usePrecisionSave.CheckedChanged += new System.EventHandler(this.usePrecisionSave_CheckedChanged);
             // 
+            // useRounding
+            // 
+            this.useRounding.AutoSize = true;
+            this.useRounding.Location = new System.Drawing.Point(12, 67);
+            this.useRounding.Name = "useRounding";
+            this.useRounding.Size = new System.Drawing.Size(94, 17);
+            this.useRounding.TabIndex = 18;
+            this.useRounding.Text = "Use Rounding";
+            this.useRounding.UseVisualStyleBackColor = true;
+            this.useRounding.CheckedChanged += new System.EventHandler(this.useRounding_CheckedChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 61);
+            this.ClientSize = new System.Drawing.Size(419, 96);
+            this.Controls.Add(this.useRounding);
             this.Controls.Add(this.usePrecisionSave);
             this.Controls.Add(this.savePrecision);
             this.Controls.Add(this.precisionIn);
@@ -129,8 +142,8 @@ namespace GCM
             this.Controls.Add(this.densityIn);
             this.Controls.Add(this.densityLabel);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(435, 100);
-            this.MinimumSize = new System.Drawing.Size(435, 100);
+            this.MaximumSize = new System.Drawing.Size(435, 135);
+            this.MinimumSize = new System.Drawing.Size(435, 135);
             this.Name = "Form2";
             this.ShowIcon = false;
             this.Text = "GCM Settings";
@@ -150,5 +163,6 @@ namespace GCM
         private System.Windows.Forms.TextBox precisionIn;
         private System.Windows.Forms.Button savePrecision;
         private System.Windows.Forms.CheckBox usePrecisionSave;
+        private System.Windows.Forms.CheckBox useRounding;
     }
 }
