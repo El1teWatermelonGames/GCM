@@ -29,6 +29,7 @@ namespace GCM
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.settings = new System.Windows.Forms.Button();
             this.gCmGroup = new System.Windows.Forms.GroupBox();
             this.enterGramsLabel = new System.Windows.Forms.Label();
@@ -82,7 +83,7 @@ namespace GCM
             this.convertCm.Location = new System.Drawing.Point(7, 125);
             this.convertCm.Name = "convertCm";
             this.convertCm.Size = new System.Drawing.Size(75, 23);
-            this.convertCm.TabIndex = 3;
+            this.convertCm.TabIndex = 2;
             this.convertCm.Text = "Convert";
             this.convertCm.UseVisualStyleBackColor = true;
             this.convertCm.Click += new System.EventHandler(this.convertCm_Click);
@@ -95,6 +96,7 @@ namespace GCM
             this.cmOut.ReadOnly = true;
             this.cmOut.Size = new System.Drawing.Size(120, 77);
             this.cmOut.TabIndex = 2;
+            this.cmOut.TabStop = false;
             this.cmOut.TextChanged += new System.EventHandler(this.cmOut_TextChanged);
             // 
             // gramsIn
@@ -133,7 +135,7 @@ namespace GCM
             this.convertG.Location = new System.Drawing.Point(9, 125);
             this.convertG.Name = "convertG";
             this.convertG.Size = new System.Drawing.Size(75, 23);
-            this.convertG.TabIndex = 3;
+            this.convertG.TabIndex = 4;
             this.convertG.Text = "Convert";
             this.convertG.UseVisualStyleBackColor = true;
             this.convertG.Click += new System.EventHandler(this.convertG_Click);
@@ -146,6 +148,7 @@ namespace GCM
             this.gOut.ReadOnly = true;
             this.gOut.Size = new System.Drawing.Size(120, 77);
             this.gOut.TabIndex = 2;
+            this.gOut.TabStop = false;
             this.gOut.TextChanged += new System.EventHandler(this.gOut_TextChanged);
             // 
             // cmIn
@@ -153,7 +156,7 @@ namespace GCM
             this.cmIn.Location = new System.Drawing.Point(7, 47);
             this.cmIn.Name = "cmIn";
             this.cmIn.Size = new System.Drawing.Size(120, 20);
-            this.cmIn.TabIndex = 1;
+            this.cmIn.TabIndex = 3;
             this.cmIn.TextChanged += new System.EventHandler(this.cmIn_TextChanged);
             // 
             // Form1
@@ -164,11 +167,13 @@ namespace GCM
             this.Controls.Add(this.gCmGroup);
             this.Controls.Add(this.cmGGroup);
             this.Controls.Add(this.settings);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(320, 325);
             this.MinimumSize = new System.Drawing.Size(320, 325);
             this.Name = "Form1";
             this.Text = "GCM";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.gCmGroup.ResumeLayout(false);
             this.gCmGroup.PerformLayout();
             this.cmGGroup.ResumeLayout(false);

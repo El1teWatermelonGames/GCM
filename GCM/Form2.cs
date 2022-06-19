@@ -7,12 +7,12 @@ namespace GCM
     public partial class Form2 : Form
     {
         // The strings that contain all the required directories and file paths
-        public string root = Directory.GetCurrentDirectory()+@"\presets";
-        public string densityFile = Directory.GetCurrentDirectory()+@"\presets\density.txt";
-        public string precisionFile = Directory.GetCurrentDirectory()+@"\presets\precision.txt";
-        public string densityBoolFile = Directory.GetCurrentDirectory()+@"\presets\densityBool.txt";
-        public string precisionBoolFile = Directory.GetCurrentDirectory()+@"\presets\precisionBool.txt";
-        public string usePrecisionFile = Directory.GetCurrentDirectory() + @"\presets\usePrecision.txt";
+        static public string root = Directory.GetCurrentDirectory()+@"\presets";
+        static public string densityFile = Directory.GetCurrentDirectory()+@"\presets\density.txt";
+        static public string precisionFile = Directory.GetCurrentDirectory()+@"\presets\precision.txt";
+        static public string densityBoolFile = Directory.GetCurrentDirectory()+@"\presets\densityBool.txt";
+        static public string precisionBoolFile = Directory.GetCurrentDirectory()+@"\presets\precisionBool.txt";
+        static public string usePrecisionFile = Directory.GetCurrentDirectory() + @"\presets\usePrecision.txt";
 
         public Form2()
         {

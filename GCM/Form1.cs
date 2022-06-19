@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GCM
 {
     public partial class Form1 : Form
     {
+
+
         static public decimal density;
         static public int precision;
         static public bool Rounding;
@@ -44,11 +47,11 @@ namespace GCM
         private void CheckEnterKeyPressGIn(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Return)
-
             {
                 if (!Rounding) cmResult = gCalc / density;
                 else cmResult = decimal.Round(gCalc / density, precision, MidpointRounding.AwayFromZero);
                 cmOut.Text = cmResult.ToString();
+                e.Handled = true;
             }
         }
 
@@ -83,9 +86,10 @@ namespace GCM
         {
             if (e.KeyChar == (char)Keys.Return)
             {
-                if (!Rounding) cmResult = gCalc / density;
-                else cmResult = decimal.Round(gCalc / density, precision, MidpointRounding.AwayFromZero);
-                cmOut.Text = cmResult.ToString();
+                if (!Rounding) gResult = cmCalc * density;
+                else gResult = decimal.Round(cmCalc * density, precision, MidpointRounding.AwayFromZero);
+                gOut.Text = gResult.ToString();
+                e.Handled = true;
             }
         }
 
@@ -99,6 +103,27 @@ namespace GCM
         private void gOut_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            if (!File.Exists(Form2.densityBoolFile)) File.WriteAllText(Form2.densityBoolFile, "false");
+            if (!File.Exists(Form2.precisionBoolFile)) File.WriteAllText(Form2.precisionBoolFile, "false");
+            if (!File.Exists(Form2.usePrecisionFile)) File.WriteAllText(Form2.usePrecisionFile, "false");
+            bool.TryParse(File.ReadAllText(Form2.densityBoolFile), out bool densitySave);
+            bool.TryParse(File.ReadAllText(Form2.precisionBoolFile), out bool precisionSave);
+            bool.TryParse(File.ReadAllText(Form2.usePrecisionFile), out bool usePrecisionSave);
+            if (densitySave)
+            {
+                decimal.TryParse(File.ReadAllText(Form2.densityFile), out decimal resultD);
+                density = resultD;
+            }
+            if (precisionSave)
+            {
+                int.TryParse(File.ReadAllText(Form2.precisionFile), out int resultP);
+                precision = resultP;
+            }
+            if (usePrecisionSave) Rounding = true;
         }
     }
 }
