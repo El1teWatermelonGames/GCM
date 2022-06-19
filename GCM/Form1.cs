@@ -107,6 +107,7 @@ namespace GCM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (!Directory.Exists(Form2.root)) Directory.CreateDirectory(Form2.root);
             if (!File.Exists(Form2.densityBoolFile)) File.WriteAllText(Form2.densityBoolFile, "false");
             if (!File.Exists(Form2.precisionBoolFile)) File.WriteAllText(Form2.precisionBoolFile, "false");
             if (!File.Exists(Form2.usePrecisionFile)) File.WriteAllText(Form2.usePrecisionFile, "false");
