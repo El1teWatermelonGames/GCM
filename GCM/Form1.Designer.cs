@@ -41,6 +41,7 @@ namespace GCM
             this.convertG = new System.Windows.Forms.Button();
             this.gOut = new System.Windows.Forms.TextBox();
             this.cmIn = new System.Windows.Forms.TextBox();
+            this.watermark = new System.Windows.Forms.Label();
             this.gCmGroup.SuspendLayout();
             this.cmGGroup.SuspendLayout();
             this.SuspendLayout();
@@ -159,11 +160,21 @@ namespace GCM
             this.cmIn.TabIndex = 3;
             this.cmIn.TextChanged += new System.EventHandler(this.cmIn_TextChanged);
             // 
+            // watermark
+            // 
+            this.watermark.AutoSize = true;
+            this.watermark.Location = new System.Drawing.Point(115, 260);
+            this.watermark.Name = "watermark";
+            this.watermark.Size = new System.Drawing.Size(177, 13);
+            this.watermark.TabIndex = 7;
+            this.watermark.Text = "Created by Elite Watermelon Games";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 286);
+            this.Controls.Add(this.watermark);
             this.Controls.Add(this.gCmGroup);
             this.Controls.Add(this.cmGGroup);
             this.Controls.Add(this.settings);
@@ -179,6 +190,7 @@ namespace GCM
             this.cmGGroup.ResumeLayout(false);
             this.cmGGroup.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -195,6 +207,7 @@ namespace GCM
         private System.Windows.Forms.Button convertG;
         private System.Windows.Forms.TextBox gOut;
         private System.Windows.Forms.TextBox cmIn;
+        private System.Windows.Forms.Label watermark;
     }
 }
 
