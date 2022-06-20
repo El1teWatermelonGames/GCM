@@ -3,4 +3,4 @@ GCM is a very simple and intuitive to use piece of software for converting betwe
 
 You can contact me at:
 
-Email - elitewatermelongames@gmail | Discord - Elite Watermelon Games #7199
+Email - elitewatermelongames@gmail.com | Discord - Elite Watermelon Games#7199
