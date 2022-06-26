@@ -1,0 +1,11 @@
+C:\Users\Henry Gove\source\repos\GCM\bin\Debug\GCM.exe.config
+C:\Users\Henry Gove\source\repos\GCM\bin\Debug\GCM.exe
+C:\Users\Henry Gove\source\repos\GCM\bin\Debug\GCM.pdb
+C:\Users\Henry Gove\source\repos\GCM\obj\Debug\GCM.csproj.AssemblyReference.cache
+C:\Users\Henry Gove\source\repos\GCM\obj\Debug\GCM.Form1.resources
+C:\Users\Henry Gove\source\repos\GCM\obj\Debug\GCM.Form2.resources
+C:\Users\Henry Gove\source\repos\GCM\obj\Debug\GCM.Properties.Resources.resources
+C:\Users\Henry Gove\source\repos\GCM\obj\Debug\GCM.csproj.GenerateResource.cache
+C:\Users\Henry Gove\source\repos\GCM\obj\Debug\GCM.csproj.CoreCompileInputs.cache
+C:\Users\Henry Gove\source\repos\GCM\obj\Debug\GCM.exe
+C:\Users\Henry Gove\source\repos\GCM\obj\Debug\GCM.pdb
