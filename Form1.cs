@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace GCM
 {
@@ -15,6 +18,8 @@ namespace GCM
         public decimal gCalc;
         public decimal cmCalc;
 
+        List<string> comboList;
+
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +27,7 @@ namespace GCM
 
         private void settings_Click(object sender, EventArgs e)
         {
-            Form2 panelSettings = new Form2();
+            Settings panelSettings = new Settings();
             panelSettings.ShowDialog();
         }
 
@@ -104,24 +109,31 @@ namespace GCM
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (!Directory.Exists(Form2.root)) Directory.CreateDirectory(Form2.root);
-            if (!File.Exists(Form2.densityBoolFile)) File.WriteAllText(Form2.densityBoolFile, "false");
-            if (!File.Exists(Form2.precisionBoolFile)) File.WriteAllText(Form2.precisionBoolFile, "false");
-            if (!File.Exists(Form2.usePrecisionFile)) File.WriteAllText(Form2.usePrecisionFile, "false");
-            bool.TryParse(File.ReadAllText(Form2.densityBoolFile), out bool densitySave);
-            bool.TryParse(File.ReadAllText(Form2.precisionBoolFile), out bool precisionSave);
-            bool.TryParse(File.ReadAllText(Form2.usePrecisionFile), out bool usePrecisionSave);
-            if (densitySave)
+            if (!Directory.Exists(Settings.root)) Directory.CreateDirectory(Settings.root);
+            if (!File.Exists(Settings.precisionBoolFile)) File.WriteAllText(Settings.precisionBoolFile, "false");
+            if (!File.Exists(Settings.usePrecisionFile)) File.WriteAllText(Settings.usePrecisionFile, "false");
+            if (!File.Exists(Settings.lastIndex))
             {
-                decimal.TryParse(File.ReadAllText(Form2.densityFile), out decimal resultD);
-                density = resultD;
+                File.Create(Settings.lastIndex).Close();
+                File.WriteAllText(Settings.lastIndex, "0");
             }
+            if (!File.Exists(Settings.comboBoxItems))
+            {
+                File.Create(Settings.comboBoxItems).Close();
+                File.WriteAllText(Settings.comboBoxItems, "Custom Preset");
+            }
+            bool.TryParse(File.ReadAllText(Settings.precisionBoolFile), out bool precisionSave);
+            bool.TryParse(File.ReadAllText(Settings.usePrecisionFile), out bool usePrecisionSave);
             if (precisionSave)
             {
-                int.TryParse(File.ReadAllText(Form2.precisionFile), out int resultP);
+                int.TryParse(File.ReadAllText(Settings.precisionFile), out int resultP);
                 precision = resultP;
             }
             if (usePrecisionSave) Rounding = true;
+
+            comboList = File.ReadLines(Settings.comboBoxItems).ToList();
+            int.TryParse(File.ReadAllText(Settings.lastIndex), out int index);
+            decimal.TryParse(Regex.Match(comboList[index], @"\d+.+\d").Value, out Form1.density);
         }
     }
 }
