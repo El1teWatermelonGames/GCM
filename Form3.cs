@@ -11,12 +11,12 @@ namespace GCM
     {
         static public string addToCombo;
 
-        static public string root = Directory.GetCurrentDirectory() + @"\presets";
-        static public string comboBoxItems = Directory.GetCurrentDirectory() + @"\presets\comboBoxItems.txt";
-        static public string lastIndex = Directory.GetCurrentDirectory() + @"\presets\lastIndex.txt";
-        static public string precisionFile = Directory.GetCurrentDirectory() + @"\presets\precision.txt";
-        static public string precisionBoolFile = Directory.GetCurrentDirectory() + @"\presets\precisionBool.txt";
-        static public string usePrecisionFile = Directory.GetCurrentDirectory() + @"\presets\usePrecision.txt";
+        static public string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\EliteWatermelonGames.GCM";
+        static public string comboBoxItems = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\EliteWatermelonGames.GCM\comboBoxItems.gcmp";
+        static public string lastIndex = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\EliteWatermelonGames.GCM\lastIndex.gcmp";
+        static public string precisionFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\EliteWatermelonGames.GCM\precision.gcmp";
+        static public string precisionBoolFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\EliteWatermelonGames.GCM\precisionBool.gcmp";
+        static public string usePrecisionFile = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\EliteWatermelonGames.GCM\usePrecision.gcmp";
 
         List<string> comboList;
 
@@ -28,7 +28,7 @@ namespace GCM
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            if (!Directory.Exists(root)) Directory.CreateDirectory(root);
+            if (!Directory.Exists(appDataFolder)) Directory.CreateDirectory(appDataFolder);
             if (!File.Exists(comboBoxItems))
             {
                 File.Create(comboBoxItems).Close();
@@ -142,11 +142,17 @@ namespace GCM
             {
                 Form1.Rounding = false;
                 File.WriteAllText(usePrecisionFile, "false");
+                precisionIn.Enabled = false;
+                savePrecision.Enabled = false;
+                usePrecisionSave.Enabled = false;
             }
             else
             {
                 Form1.Rounding = true;
                 File.WriteAllText(usePrecisionFile, "true");
+                precisionIn.Enabled = true;
+                savePrecision.Enabled = true;
+                usePrecisionSave.Enabled = true;
             }
         }
     }

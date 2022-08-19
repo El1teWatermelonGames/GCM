@@ -29,31 +29,24 @@ namespace GCM
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.comboDensity = new System.Windows.Forms.ComboBox();
             this.newDensity = new System.Windows.Forms.Button();
             this.deleteDensity = new System.Windows.Forms.Button();
             this.inputDensity = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.usePrecisionSave = new System.Windows.Forms.CheckBox();
             this.savePrecision = new System.Windows.Forms.Button();
             this.precisionIn = new System.Windows.Forms.TextBox();
             this.useRounding = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Density (g/cm³)";
             // 
             // comboDensity
             // 
             this.comboDensity.FormattingEnabled = true;
-            this.comboDensity.Location = new System.Drawing.Point(264, 10);
+            this.comboDensity.Location = new System.Drawing.Point(172, 23);
             this.comboDensity.Name = "comboDensity";
             this.comboDensity.Size = new System.Drawing.Size(121, 21);
             this.comboDensity.TabIndex = 1;
@@ -61,7 +54,7 @@ namespace GCM
             // 
             // newDensity
             // 
-            this.newDensity.Location = new System.Drawing.Point(98, 8);
+            this.newDensity.Location = new System.Drawing.Point(6, 22);
             this.newDensity.Name = "newDensity";
             this.newDensity.Size = new System.Drawing.Size(75, 23);
             this.newDensity.TabIndex = 2;
@@ -71,7 +64,7 @@ namespace GCM
             // 
             // deleteDensity
             // 
-            this.deleteDensity.Location = new System.Drawing.Point(179, 8);
+            this.deleteDensity.Location = new System.Drawing.Point(87, 22);
             this.deleteDensity.Name = "deleteDensity";
             this.deleteDensity.Size = new System.Drawing.Size(79, 23);
             this.deleteDensity.TabIndex = 3;
@@ -81,36 +74,27 @@ namespace GCM
             // 
             // inputDensity
             // 
-            this.inputDensity.Location = new System.Drawing.Point(391, 10);
+            this.inputDensity.Location = new System.Drawing.Point(299, 24);
             this.inputDensity.Name = "inputDensity";
             this.inputDensity.ReadOnly = true;
             this.inputDensity.Size = new System.Drawing.Size(100, 20);
             this.inputDensity.TabIndex = 4;
             this.inputDensity.TextChanged += new System.EventHandler(this.inputDensity_TextChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Decimal Places";
-            // 
             // usePrecisionSave
             // 
             this.usePrecisionSave.AutoSize = true;
-            this.usePrecisionSave.Location = new System.Drawing.Point(330, 38);
+            this.usePrecisionSave.Location = new System.Drawing.Point(321, 19);
             this.usePrecisionSave.Name = "usePrecisionSave";
-            this.usePrecisionSave.Size = new System.Drawing.Size(56, 17);
+            this.usePrecisionSave.Size = new System.Drawing.Size(78, 17);
             this.usePrecisionSave.TabIndex = 19;
-            this.usePrecisionSave.Text = "Preset";
+            this.usePrecisionSave.Text = "Use Preset";
             this.usePrecisionSave.UseVisualStyleBackColor = true;
             this.usePrecisionSave.CheckedChanged += new System.EventHandler(this.usePrecisionSave_CheckedChanged);
             // 
             // savePrecision
             // 
-            this.savePrecision.Location = new System.Drawing.Point(214, 34);
+            this.savePrecision.Location = new System.Drawing.Point(205, 15);
             this.savePrecision.Name = "savePrecision";
             this.savePrecision.Size = new System.Drawing.Size(110, 23);
             this.savePrecision.TabIndex = 18;
@@ -120,7 +104,7 @@ namespace GCM
             // 
             // precisionIn
             // 
-            this.precisionIn.Location = new System.Drawing.Point(98, 36);
+            this.precisionIn.Location = new System.Drawing.Point(89, 17);
             this.precisionIn.Name = "precisionIn";
             this.precisionIn.Size = new System.Drawing.Size(110, 20);
             this.precisionIn.TabIndex = 17;
@@ -129,49 +113,69 @@ namespace GCM
             // useRounding
             // 
             this.useRounding.AutoSize = true;
-            this.useRounding.Location = new System.Drawing.Point(392, 38);
+            this.useRounding.Location = new System.Drawing.Point(6, 19);
             this.useRounding.Name = "useRounding";
-            this.useRounding.Size = new System.Drawing.Size(94, 17);
+            this.useRounding.Size = new System.Drawing.Size(72, 17);
             this.useRounding.TabIndex = 20;
-            this.useRounding.Text = "Use Rounding";
+            this.useRounding.Text = "Rounding";
             this.useRounding.UseVisualStyleBackColor = true;
             this.useRounding.CheckedChanged += new System.EventHandler(this.useRounding_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.newDensity);
+            this.groupBox1.Controls.Add(this.deleteDensity);
+            this.groupBox1.Controls.Add(this.comboDensity);
+            this.groupBox1.Controls.Add(this.inputDensity);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(405, 51);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Density";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.savePrecision);
+            this.groupBox2.Controls.Add(this.usePrecisionSave);
+            this.groupBox2.Controls.Add(this.precisionIn);
+            this.groupBox2.Controls.Add(this.useRounding);
+            this.groupBox2.Location = new System.Drawing.Point(12, 63);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(405, 47);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Decimal Places";
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 61);
-            this.Controls.Add(this.useRounding);
-            this.Controls.Add(this.usePrecisionSave);
-            this.Controls.Add(this.savePrecision);
-            this.Controls.Add(this.precisionIn);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.inputDensity);
-            this.Controls.Add(this.deleteDensity);
-            this.Controls.Add(this.newDensity);
-            this.Controls.Add(this.comboDensity);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(430, 123);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Name = "Settings";
             this.ShowIcon = false;
             this.Text = "GCM Settings";
             this.Load += new System.EventHandler(this.Settings_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboDensity;
         private System.Windows.Forms.Button newDensity;
         private System.Windows.Forms.Button deleteDensity;
         private System.Windows.Forms.TextBox inputDensity;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox usePrecisionSave;
         private System.Windows.Forms.Button savePrecision;
         private System.Windows.Forms.TextBox precisionIn;
         private System.Windows.Forms.CheckBox useRounding;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

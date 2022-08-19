@@ -109,7 +109,7 @@ namespace GCM
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (!Directory.Exists(Settings.root)) Directory.CreateDirectory(Settings.root);
+            if (!Directory.Exists(Settings.appDataFolder)) Directory.CreateDirectory(Settings.appDataFolder);
             if (!File.Exists(Settings.precisionBoolFile)) File.WriteAllText(Settings.precisionBoolFile, "false");
             if (!File.Exists(Settings.usePrecisionFile)) File.WriteAllText(Settings.usePrecisionFile, "false");
             if (!File.Exists(Settings.lastIndex))

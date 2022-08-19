@@ -92,6 +92,7 @@ namespace GCM
             this.Name = "Form4";
             this.ShowIcon = false;
             this.Text = "Add Preset";
+            this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

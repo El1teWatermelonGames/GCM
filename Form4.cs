@@ -44,5 +44,10 @@ namespace GCM
             Settings.addToCombo = NameInput.Text + " | " + valueInput.Text;
             this.Close();
         }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
